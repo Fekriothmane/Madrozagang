@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Madrazo Gang - War Room</title>
+
+  <style>
+    /* ───────────────
+       Madrazo Gang – Global Styles
+       ─────────────────────────── */
+    @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;700&display=swap");
+
+    :root {
+      --bg: #0d0d0d;
+      --card-bg: #1b1b1b;
+      --primary: #d22;          /* Blood‑red accent */
+      --primary-light: #ff4444; /* Hover accent   */
+      --text: #eeeeee;
+      --muted: #888;
+      --radius: 12px;
+      --transition: 0.3s ease;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-family: "Bebas Neue", sans-serif;
+      margin: 0.5em 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h1 { font-size: 2.8rem; color: var(--primary); text-align: center; }
+    h2 { font-size: 2rem; color: var(--primary); }
+    p  { line-height: 1.6;  color: var(--muted); }
+
+    /* ───── NAVIGATION ───── */
+    nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: #000;
+      border-bottom: 1px solid var(--primary);
+      z-index: 1000;
+    }
+
+    nav .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+    }
+
+    nav .logo {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.8rem;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+        /* Logo container */
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    /* Logo image */
+    nav .logo img {
+      height: 40px; /* Adjust as needed */
+      width: auto;
+      display: block;
+    }
+
+    
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--primary-light);
+    }
+
+    /* Mobile burger */
+    .burger {
+      display: none;
+      font-size: 1.6rem;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        position: fixed;
+        inset: 0 0 0 40%;
+        flex-direction: column;
+        gap: 2rem;
+        padding-top: 5rem;
+        background: rgba(0,0,0,0.95);
+        translate: 100%;
+        transition: translate var(--transition);
+      }
+      nav ul.open { translate: 0; }
+      .burger { display: block; }
+    }
+
+    /* ───── SCROLL ANIMATION ───── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    /* We force visible immediately */
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrapper">
+      <a href="index.html" class="logo">
+        <img src="images/madrazo-logo.png" alt="Madrazo Gang Logo" />
+        MADRAZO GANG</a>
+      <button class="burger" aria-label="menu">☰</button>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="illegal-activities.html">Illegal Activities</a></li>
+        <li><a href="turf-map.html">Turf Map</a></li>
+        <li><a href="case-files.html">Case Files</a></li>
+        <li><a href="business-fronts.html">Business Fronts</a></li>
+        <li><a href="anonymous-tips.html">Anonymous Tips</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="ranks.html">Ranks</a></li>
+        <li><a href="war-room.html" class="active">War Room</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="fade-in visible">
+      <h2>Active Turf Wars</h2>
+      <ul>
+        <li><strong>Marabunta Grande:</strong> Ongoing brutal conflict in Red Garage</li>
+        <li><strong>La Mano Roja:</strong> Tense standoff near the docks</li>
+        <li><strong>Lost MC:</strong> Skirmishes reported in the industrial zone</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Mobile burger toggle
+      const burger = document.querySelector(".burger");
+      const navList = document.querySelector("nav ul");
+      if (burger) {
+        burger.addEventListener("click", () => navList.classList.toggle("open"));
+      }
+
+      // Active nav link highlighting
+      const current = location.pathname.split("/").pop() || "index.html";
+      document.querySelectorAll("nav a").forEach(a => {
+        if (a.href.endsWith(current)) {
+          a.classList.add("active");
+        }
+      });
+
+      // Fade-in animation (already forced visible with class in HTML)
+      // If you want to re-enable scroll fade:
+      /*
+      const faders = document.querySelectorAll(".fade-in");
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+          });
+        }, { threshold: 0.2 });
+        faders.forEach(el => io.observe(el));
+      } else {
+        faders.forEach(el => el.classList.add("visible"));
+      }
+      */
+    });
+  </script>
+</body>
+</html>

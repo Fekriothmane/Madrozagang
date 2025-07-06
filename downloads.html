@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Downloads - Madrazo</title>
+  <style>
+    /* ───────────────
+       Madrazo Gang – Global Styles
+       ─────────────────────────── */
+    @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;700&display=swap");
+
+    :root {
+      --bg: #0d0d0d;
+      --card-bg: #1b1b1b;
+      --primary: #d22;
+      --primary-light: #ff4444;
+      --text: #eeeeee;
+      --muted: #888;
+      --radius: 12px;
+      --transition: 0.3s ease;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-family: "Bebas Neue", sans-serif;
+      margin: 0.5em 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: var(--primary);
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ───── NAVIGATION ───── */
+    nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: #000;
+      border-bottom: 1px solid var(--primary);
+      z-index: 1000;
+    }
+
+    nav .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+    }
+
+    /* Logo container */
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    /* Logo image */
+    nav .logo img {
+      height: 40px; /* Adjust as needed */
+      width: auto;
+      display: block;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--primary-light);
+    }
+
+    /* Mobile burger */
+    .burger {
+      display: none;
+      font-size: 1.6rem;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        position: fixed;
+        inset: 0 0 0 40%;
+        flex-direction: column;
+        gap: 2rem;
+        padding-top: 5rem;
+        background: rgba(0,0,0,0.95);
+        translate: 100%;
+        transition: translate var(--transition);
+      }
+      nav ul.open { translate: 0; }
+      .burger { display: block; }
+    }
+
+    /* ───── CONTENT ───── */
+    main {
+      padding: 1rem;
+      max-width: 600px;
+      margin: 0 auto 4rem;
+    }
+
+    ul.download-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul.download-list li {
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+
+    ul.download-list li a {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--primary);
+      color: #000;
+      font-weight: 700;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background-color var(--transition), box-shadow var(--transition);
+      box-shadow: 0 0 8px var(--primary);
+    }
+
+    ul.download-list li a:hover,
+    ul.download-list li a:focus {
+      background: var(--primary-light);
+      box-shadow: 0 0 15px var(--primary-light);
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrapper">
+      <a href="index.html" class="logo">
+        <img src="images/madrazo-logo.png" alt="Madrazo Gang Logo" />
+        MADRAZO GANG
+      </a>
+      <button class="burger" aria-label="menu">☰</button>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="illegal-activities.html">Illegal Activities</a></li>
+        <li><a href="turf-map.html">Turf Map</a></li>
+        <li><a href="case-files.html">Case Files</a></li>
+        <li><a href="business-fronts.html">Business Fronts</a></li>
+        <li><a href="anonymous-tips.html">Anonymous Tips</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="ranks.html">Ranks</a></li>
+        <li><a href="war-room.html">War Room</a></li>
+        <li><a href="downloads.html" class="active">Downloads</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Madrazo Downloads</h1>
+    <ul class="download-list">
+      <li><a href="https://discord.gg/kHah9qcW55" target="_blank" rel="noopener noreferrer">Join Our Discord</a></li>
+      <li><a href="images/madrazo-wallpaper.jpg" download>Madrazo Wallpaper</a></li>
+      <li><a href="downloads/madrazo-vehicle-pack.zip" download>Gang Vehicle Pack</a></li>
+    </ul>
+  </main>
+
+  <script>
+    // Burger menu toggle
+    document.addEventListener("DOMContentLoaded", () => {
+      const burger = document.querySelector(".burger");
+      const navList = document.querySelector("nav ul");
+      burger.addEventListener("click", () => {
+        navList.classList.toggle("open");
+      });
+
+      // Active link highlighting
+      const current = location.pathname.split("/").pop() || "index.html";
+      document.querySelectorAll("nav a").forEach(a => {
+        if (a.href.endsWith(current)) a.classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
